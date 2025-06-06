@@ -1,0 +1,15 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# Env & dependencies
+.env
+venv/
+*.egg-info/
+
+# IDE/editor
+.vscode/
+.idea/
+
+# OS crap
+.DS_Store
