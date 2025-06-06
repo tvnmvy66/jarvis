@@ -16,7 +16,7 @@ load_dotenv()
 MONGO_URI = os.getenv("MONGO_URI")
 DB_NAME = os.getenv("DB_NAME")
 COLLECTION_NAME = os.getenv("COLLECTION_NAME")
-# oclient = OpenAI()
+oclient = OpenAI()
 gclient = genai.Client(api_key="AIzaSyBr3UYprUIphD0GbG-BIjSWuz2zpoDAkgE")
 app = FastAPI()
 
@@ -112,7 +112,7 @@ async def websocket_endpoint(websocket: WebSocket):
 # === TTS Audio Generator ===
 async def generate_tts_audio(text: str, voice="shimmer", model="tts-1"):
     try:
-        response = client.audio.speech.create(
+        response = oclient.audio.speech.create(
             model=model,
             voice=voice,
             input=text
