@@ -32,6 +32,11 @@ class ContactForm(BaseModel):
     email: EmailStr = Field(..., min_length=5, max_length=30)
     message: str = Field(..., min_length=10, max_length=200)
 
+@app.get("/")
+async def hello():
+    return {"message" : "Hey, I am alive!"}
+
+
 @app.post("/contact")
 async def submit_contact(form: ContactForm):
     doc = form.model_dump()
